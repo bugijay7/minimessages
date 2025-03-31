@@ -1,0 +1,140 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0f0a0f; /* Dark background */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    color: #d1d2d2; /* Light gray for contrast */
+    margin-top: 20px;
+}
+
+/* Message List Styles */
+.message-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #1a1a1a; /* Slightly lighter than the body for depth */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* General message styling */
+.message {
+    font-size: 18px;
+    color: #d1d2d2;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    position: relative;
+    clear: both;
+    max-width: 80%;
+}
+
+/* Kibugi's messages */
+.message[data-user="Kibugi"] {
+    background-color: #462588;
+    margin-left: auto;
+    text-align: left;
+}
+
+.message[data-user="Kibugi"]::before {
+    content: attr(data-user);
+    font-weight: bold;
+    color: #54b2c7;
+    display: block;
+}
+
+/* Kashio's messages */
+.message[data-user="Kashio"] {
+    background-color: #338077;
+    margin-right: auto;
+    text-align: left;
+}
+
+.message[data-user="Kashio"]::before {
+    content: attr(data-user);
+    font-weight: bold;
+    color: #1b4363;
+    display: block;
+}
+
+/* Last message margin removal */
+.message:last-child {
+    margin-bottom: 0;
+}
+
+/* Timestamp */
+.message em {
+    font-size: 0.85rem;
+    color: #b57b37;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Form Styles */
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 15px;
+    background: #2a2a2a;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+    color: #d1d2d2;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #1a1a1a;
+    color: #d1d2d2;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #b57b37;
+    color: #0f0a0f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #d1d2d2;
+    color: #0f0a0f;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .message-container, form {
+        width: 95%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .message {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    input, textarea, button {
+        font-size: 0.9rem;
+    }
+}

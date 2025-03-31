@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>Mini Messageboard</h1>
-    <ul>
-        <% messages.forEach((message) => { %>
-            <li>
-                <strong><%= message.user %>:</strong> <%= message.text %> <br>
-                <small>Posted on: <%= message.added.toLocaleString() %></small>
-            </li>
-        <% }); %>
-    </ul>
+    <h1>KiKa Chat</h1>
+    <div class="message-container">
+        <% messages.forEach(message => { %>
+            <div class="message" data-user="<%= message.user_name %>">
+                <strong><%= message.user %>:</strong> <%= message.text %>
+                <p><em>Posted on: <%= message.added.toLocaleString() %></em></p>
+            </div>
+            <hr>
+        <% }) %>
+    </div>
     <a href="/new">Add a New Message</a>
 </body>
 </html>
