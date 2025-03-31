@@ -19,7 +19,7 @@ router.get("/new", (req, res) => {
 });
 
 // POST new message route (Save new messages)
-r// POST new message route
+// POST new message route
 router.post("/new", (req, res) => {
   const { user, message } = req.body; // Extract form data
 
