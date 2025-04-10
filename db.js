@@ -8,15 +8,15 @@ const isProduction = process.env.NODE_ENV === 'production';
 const poolConfig = process.env.DATABASE_URL
   ? {
       connectionString: process.env.DATABASE_URL,
-      ssl: { rejectUnauthorized: false }, // ✅ Always enable SSL for production
+      ssl: isProduction ? { rejectUnauthorized: false } : false, // SSL enabled in production
     }
   : {
       user: process.env.DB_USER,
       host: process.env.DB_HOST,
       database: process.env.DB_NAME,
       password: process.env.DB_PASSWORD,
-      port: process.env.DB_PORT ? parseInt(process.env.DB_PORT, 10) : 5432,
-      ssl: isProduction ? { rejectUnauthorized: false } : false, // ✅ Ensure SSL when needed
+      port: process.env.DB_PORT || 5432,
+      ssl: isProduction ? { rejectUnauthorized: false } : false,
     };
 
 // Create a new PostgreSQL connection pool
